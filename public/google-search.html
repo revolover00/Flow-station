@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <style>
+      body {
+        margin: 12px;
+        background: white;
+        color: #21372c;
+        font: 15px/1.6 system-ui;
+      }
+      a {
+        color: #196352;
+      }
+      .gsc-control-cse {
+        border: 0 !important;
+        padding: 0 !important;
+      }
+      p {
+        font-size: 13px;
+      }
+    </style>
+    <title>بحث مصادر الدراسة</title>
+  </head>
+  <body>
+    <div
+      class="gcse-searchresults-only"
+      data-linkTarget="_blank"
+      data-queryParameterName="q"
+    ></div>
+    <p id="state" role="status">جارٍ تحميل نتائج Google للمواقع المختارة…</p>
+    <script>
+      const u = new URLSearchParams(location.search),
+        cx = u.get("cx"),
+        q = (u.get("q") || "").slice(0, 350),
+        s = document.getElementById("state");
+      if (/^[\w:-]{5,100}$/.test(cx || "") && q) {
+        const t = document.createElement("script");
+        t.async = true;
+        t.src =
+          "https://cse.google.com/cse.js?cx=" +
+          encodeURIComponent(cx) +
+          "&hl=ar";
+        t.onerror = () =>
+          (s.textContent =
+            "تعذّر تحميل بحث Google. استخدم رابط البحث الخارجي في شريط الأداة.");
+        new MutationObserver(() => {
+          if (
+            document.querySelector(
+              ".gsc-results,.gsc-result-info,.gsc-no-results-result",
+            )
+          )
+            s.hidden = true;
+        }).observe(document.body, { subtree: true, childList: true });
+        setTimeout(() => {
+          if (!s.hidden)
+            s.textContent =
+              "لو النتائج ما ظهرتش، استخدم البحث الخارجي. تأكد إن محرك البحث متاح والمواقع متضافة فيه.";
+        }, 8000);
+        document.head.append(t);
+      } else {
+        s.textContent = "محتاج معرّف محرك بحث وسؤال صالحين.";
+      }
+    </script>
+  </body>
+</html>

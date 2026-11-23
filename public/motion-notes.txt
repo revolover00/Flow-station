@@ -1,0 +1,13 @@
+ورقة مذاكرة · الحركة في خط مستقيم
+
+متوسط السرعة
+متوسط السرعة يساوي المسافة الكلية مقسومة على الزمن الكلي.
+v = d / t
+
+مثال: قطع عدّاء مسافة ٨٠ مترًا في ٢٠ ثانية. متوسط سرعته ٤ أمتار في الثانية.
+
+English term
+Average speed is the total distance travelled divided by the total time taken. Speed is a scalar quantity; velocity also has a direction.
+
+سؤال مراجعة
+طالب قطع ١٥٠ مترًا في نصف دقيقة. حوّل الزمن إلى ثوانٍ قبل إيجاد متوسط السرعة.
